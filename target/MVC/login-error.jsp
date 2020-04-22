@@ -12,6 +12,6 @@
 </head>
 <body>
 <p>Sorry! username or password error</p>
-<%@ include file="index.jsp" %>
+<%@ include file="welcome.jsp" %>
 </body>
 </html>

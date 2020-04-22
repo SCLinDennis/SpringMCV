@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 public class ControllerServlet extends HttpServlet {
+//    boolean visit = false;
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html");
@@ -15,15 +16,16 @@ public class ControllerServlet extends HttpServlet {
 
         String name=request.getParameter("set_name");
         String password=request.getParameter("set_password");
-
+        System.out.println(name);
         LoginBean bean=new LoginBean();
         bean.setName(name);
         bean.setPassword(password);
         request.setAttribute("bean",bean);
+        request.getRequestDispatcher("welcome.jsp");
+        String inputName=request.getParameter("name");
+        String inputPassword=request.getParameter("password");
 
-
-
-        boolean status=bean.validate();
+        boolean status=bean.validate(inputPassword);
 
         if(status){
             RequestDispatcher rd=request.getRequestDispatcher("login-success.jsp");

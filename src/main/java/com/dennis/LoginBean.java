@@ -15,8 +15,8 @@ public class LoginBean {
     public void setPassword(String pass) {
         this.password = pass;
     }
-    public boolean validate(){
-        if(this.password.equals("admin")){
+    public boolean validate(String pass){
+        if(this.password.equals(pass)){
             return true;
         }
         else{
